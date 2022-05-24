@@ -1,0 +1,25 @@
+<div class="book-search">
+  <form [formGroup]="searchForm">
+    <mat-form-field appearance="fill" color="accent">
+      <mat-label color="accent">Enter A Book Title</mat-label>
+      <input
+        matInput
+        #input
+        placeholder="Enter a book title"
+        color="green"
+        formControlName="searchBook"
+      />
+    </mat-form-field>
+  </form>
+</div>
+
+<mat-spinner *ngIf="isLoading" class="spinner" mode="indeterminate"></mat-spinner>
+
+<h1 *ngIf="books.length > 0" class="title">Books found</h1>
+<div *ngIf="books.length > 0" class="books-container">
+  <div *ngFor="let book of books">
+    <app-book-card [book]="book"></app-book-card>
+  </div>
+</div>
+
+

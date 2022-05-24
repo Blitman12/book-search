@@ -38,6 +38,7 @@ export class BookEffects {
             authorName: doc.author_name,
             firstPublishYear: doc.first_publish_year,
             title: doc.title,
+            isbn: doc?.isbn ? doc.isbn[0] : ''
           } as Book);
         });
         this._store.dispatch(BookActions.updateBooksArray({books}))

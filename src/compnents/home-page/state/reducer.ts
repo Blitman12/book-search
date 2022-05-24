@@ -8,7 +8,7 @@ export const featureName = 'BookSlice';
 export interface BookState {
     books: Book[],
     searched: string,
-    isLoading: boolean
+    isLoading: boolean,
 };
 
 export const initialState: BookState = {

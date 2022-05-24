@@ -7,7 +7,7 @@ import { Book, BookResponse } from 'src/models';
     providedIn: 'root'
 })
 export class BookService {
-    private bookURL = 'https://openlibrary.org/search.json?q='
+    private bookURL = 'https://openlibrary.org/search.json?title='
 
     constructor(private _http: HttpClient) {}
 

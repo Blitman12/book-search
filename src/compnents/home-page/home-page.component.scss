@@ -1,13 +1,6 @@
 .book-search {
   display: flex;
   justify-content: center;
-  // mat-form-field {
-  //     color: white!important;
-  //     background-color: grey!important;
-  // }
-  // mat-form-field-appearance-fill {
-  //     background-color: black!important;
-  // }
   mat-form-field {
     background-color: rgb(42, 43, 40)!important;
   }
@@ -18,9 +11,12 @@
 
 .books-container {
   display: grid;
+  max-width: 75%;
+  margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 25px;
   grid-auto-rows: minmax(100px, auto);
+  justify-content: center;
 }
 
 .title {

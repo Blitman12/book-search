@@ -1,7 +1,7 @@
 <div class="book-search">
-  <form [formGroup]="searchForm">
+  <form [formGroup]="searchForm" autocomplete="off">
     <mat-form-field appearance="fill" color="accent">
-      <mat-label color="accent">Enter A Book Title</mat-label>
+      <mat-label >Enter A Book Title</mat-label>
       <input
         matInput
         #input
@@ -17,9 +17,10 @@
 
 <h1 *ngIf="books.length > 0" class="title">Books found</h1>
 <div *ngIf="books.length > 0" class="books-container">
-  <div *ngFor="let book of books">
+  <div *ngFor="let book of books | paginate: {itemsPerPage: 9, currentPage: cp }">
     <app-book-card [book]="book"></app-book-card>
   </div>
 </div>
+<pagination-controls (pageChange)="cp = $event" class="pagination" *ngIf="books.length > 0"></pagination-controls>
 
 

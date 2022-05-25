@@ -13,8 +13,8 @@ import { debounceTime } from 'rxjs';
 })
 export class HomePageComponent implements OnInit {
   public searchForm!: FormGroup;
-
-  public books: Book[] = []
+  public cp = 0;
+  public books: Book[] = [];
   public isLoading = false;
 
   public get searchedBook(): AbstractControl | null {
@@ -37,7 +37,10 @@ export class HomePageComponent implements OnInit {
   }
 
   private handleChange(): void {
-    this._store.dispatch(BookActions.bookSearchUpdate({searched: this.searchedBook?.value}))
+    if (this.searchedBook?.value.length === 0) {
+      this._store.dispatch(BookActions.resetBookSearch())
+    } else {
+      this._store.dispatch(BookActions.bookSearchUpdate({searched: this.searchedBook?.value}))
+    }
   }
-
 }

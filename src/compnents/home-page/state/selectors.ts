@@ -11,6 +11,7 @@ export const getSearchedInfo = createSelector(getBookState, state => state.searc
 
 export const getLoadingInfo = createSelector(getBookState, state => state.isLoading);
 
+
 @Injectable({
     providedIn: 'root'
 })

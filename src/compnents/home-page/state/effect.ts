@@ -1,7 +1,7 @@
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { take, tap } from 'rxjs';
+import { catchError, take, tap } from 'rxjs';
 
 import { Book } from 'src/models';
 import { BookService } from 'src/services/book-search/book-service';
@@ -41,8 +41,8 @@ export class BookEffects {
             isbn: doc?.isbn ? doc.isbn[0] : ''
           } as Book);
         });
-        this._store.dispatch(BookActions.updateBooksArray({books}))
-        this._store.dispatch(BookActions.isLoading({isLoading: false}))
+        this._store.dispatch(BookActions.updateBooksArray({ books }))
+        this._store.dispatch(BookActions.isLoading({ isLoading: false }))
       });
   }
 }

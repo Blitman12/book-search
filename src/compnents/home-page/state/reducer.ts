@@ -14,7 +14,7 @@ export interface BookState {
 export const initialState: BookState = {
     books: [],
     searched: '',
-    isLoading: false
+    isLoading: false,
 };
 
 const bookReducer = createReducer(
@@ -33,7 +33,7 @@ const bookReducer = createReducer(
     on(BookActions.isLoading, (state, {isLoading: _isLoading}) => ({
         ...state,
         isLoading: _isLoading
-    }))
+    })),
 )
 
 export function reducer(state: BookState, action: Action): BookState {

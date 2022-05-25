@@ -9,10 +9,17 @@ import { Book } from 'src/models';
 export class BookCardComponent implements OnInit {
   @Input() book!: Book
   public bookUrl = '';
+  public shouldDisplay = false;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.bookUrl = this.book.isbn !== '' ? `https://covers.openlibrary.org/b/isbn/${this.book.isbn}-M.jpg` : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'
+    this.bookUrl = this.book.isbn !== '' ? `https://covers.openlibrary.org/b/isbn/${this.book.isbn}-M.jpg?default=false` : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'
+    
   }
+
+  public onImgError(event: any): void {
+    event.target.src = 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg'
+  }
+
 }

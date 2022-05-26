@@ -9,12 +9,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
-import { HomePageModule } from 'src/compnents/home-page/home-page.module';
+import { HomePageModule } from 'src/components/home-page/home-page.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

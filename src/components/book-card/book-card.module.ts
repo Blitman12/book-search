@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BookCardComponent } from './book-card.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { SkeletonImageModule } from '../skeleton-image/skeleton-image.module';
 
 
 
@@ -9,7 +11,9 @@ import { BookCardComponent } from './book-card.component';
     BookCardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgxSkeletonLoaderModule,
+    SkeletonImageModule
   ],
   exports: [BookCardComponent]
 })

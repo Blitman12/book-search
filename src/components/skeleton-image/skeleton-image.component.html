@@ -1,0 +1,16 @@
+<img
+  [src]="bookUrl"
+  (error)="onImgError($event)"
+  class="image"
+  (load)="imageLoaded()"
+  [hidden]="!isLoaded"
+/>
+<ngx-skeleton-loader
+  animation="pulse"
+  [hidden]="isLoaded"
+  [theme]="{
+    width: '100px',
+    height: '130px',
+    'background-color': '#992929'
+  }"
+></ngx-skeleton-loader>

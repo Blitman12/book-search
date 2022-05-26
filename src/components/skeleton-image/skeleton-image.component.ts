@@ -2,21 +2,22 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Book } from 'src/models';
 
 @Component({
-  selector: 'app-book-card',
-  templateUrl: './book-card.component.html',
-  styleUrls: ['./book-card.component.scss'],
+  selector: 'app-skeleton-image',
+  templateUrl: './skeleton-image.component.html',
+  styleUrls: ['./skeleton-image.component.scss'],
 })
-export class BookCardComponent implements OnInit {
+export class SkeletonImageComponent implements OnInit {
   @Input() book!: Book;
+
   public bookUrl = '';
-  public shouldDisplay = false;
+  public isLoaded = false;
 
   constructor() {}
 
   ngOnInit(): void {
     this.bookUrl =
       this.book.isbn !== ''
-        ? `https://covers.openlibrary.org/b/isbn/${this.book.isbn}-M.jpg?default=false`
+        ? `https://covers.openlibrary.org/b/isbn/${this.book.isbn}-L.jpg?default=false`
         : 'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg';
   }
 
@@ -25,10 +26,7 @@ export class BookCardComponent implements OnInit {
       'https://islandpress.org/sites/default/files/default_book_cover_2015.jpg';
   }
 
-  public handleClick(event: any): void {
-    console.log(event)
-    if (event.target.outerText === '>Title: Shane') {
-      alert('Super Secret')
-    }
+  public imageLoaded(): void {
+    this.isLoaded = true;
   }
 }

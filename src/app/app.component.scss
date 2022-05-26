@@ -3,3 +3,22 @@
     font-weight: 800;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+.book-card-container {
+    display: flex;
+ }
+ 
+ .book-content {
+     padding-left: 25px;
+     display: flex;
+     flex-direction: column;
+     text-align: left;
+     justify-content: center;
+ }
+
+ .author {
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     overflow: hidden;
+     width: 200px;
+ }

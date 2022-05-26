@@ -9,13 +9,14 @@ import { debounceTime } from 'rxjs';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss', '../../app/app.component.scss']
 })
 export class HomePageComponent implements OnInit {
   public searchForm!: FormGroup;
   public cp = 0;
   public books: Book[] = [];
   public isLoading = false;
+  public skeletonRepeat = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
   public get searchedBook(): AbstractControl | null {
     return this.searchForm.get('searchBook')

@@ -12,6 +12,8 @@ import { HomePageComponent } from './home-page.component';
 import * as fromFeature from './state/reducer';
 import { BookEffects } from './state/effect';
 import { BookCardModule } from '../book-card/book-card.module';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import { BookCardModule } from '../book-card/book-card.module';
     CommonModule,
     ReactiveFormsModule,
     BookCardModule,
+    NgxSkeletonLoaderModule,
     NgxPaginationModule,
     MatInputModule,
     MatProgressSpinnerModule,

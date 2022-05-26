@@ -1,3 +1,5 @@
+// @import 'src/app/app.component.scss';
+
 .book-search {
   display: flex;
   justify-content: center;
@@ -21,24 +23,13 @@
 
 .books-container {
   display: grid;
-  max-width: 75%;
+  max-width: 80%;
   margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  gap: 100px;
   grid-auto-rows: minmax(100px, auto);
   justify-content: center;
-}
-
-.title {
-  text-align: center;
-  margin-bottom: 75px;
-  margin-top: 50px;
-}
-
-.spinner {
-  position: absolute;
-  left: calc(50% - 50px);
-  top: 25%;
+  margin-top: 100px;
 }
 
 .pagination {
@@ -49,6 +40,7 @@
   text-align: center;
 }
 
-:host ::ng-deep .ngx-pagination   a  {
+:host ::ng-deep .ngx-pagination  a  {
   color: green;
+  margin-top: 60px;
 }

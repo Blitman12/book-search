@@ -9,6 +9,8 @@ import { Book } from 'src/models';
 export class BookCardComponent  {
   @Input() book!: Book;
 
+  public author = this.book?.authorName ?? ''
+
   constructor() {}
 
   public handleClick(event: any): void {
@@ -17,4 +19,5 @@ export class BookCardComponent  {
       alert('Super Secret')
     }
   }
+
 }

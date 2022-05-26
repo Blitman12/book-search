@@ -1,7 +1,7 @@
 <div class="book-search">
   <form [formGroup]="searchForm" autocomplete="off">
     <mat-form-field appearance="fill" color="accent">
-      <mat-label >Enter A Book Title</mat-label>
+      <mat-label>Enter A Book Title</mat-label>
       <input
         matInput
         #input
@@ -13,14 +13,35 @@
   </form>
 </div>
 
-<mat-spinner *ngIf="isLoading" class="spinner" mode="indeterminate"></mat-spinner>
+<!-- <mat-spinner *ngIf="isLoading" class="spinner" mode="indeterminate"></mat-spinner> -->
 
-<h1 *ngIf="books.length > 0" class="title">Books found</h1>
 <div *ngIf="books.length > 0" class="books-container">
-  <div *ngFor="let book of books | paginate: {itemsPerPage: 9, currentPage: cp }">
+  <div
+    *ngFor="let book of books | paginate: { itemsPerPage: 9, currentPage: cp }"
+  >
     <app-book-card [book]="book"></app-book-card>
   </div>
 </div>
-<pagination-controls (pageChange)="cp = $event" class="pagination" *ngIf="books.length > 0"></pagination-controls>
 
+<div class="books-container" *ngIf="isLoading">
+  <div *ngFor="let number of skeletonRepeat">
+    <div class="book-card-container">
+      <ngx-skeleton-loader
+        animation="pulse"
+        [theme]="{width:'100px', height: '130px'}"
+        class="image"
+      ></ngx-skeleton-loader>
+      <div class="book-content">
+        <ngx-skeleton-loader animation="pulse" [theme]="{width:'150px', height: '10px'}"></ngx-skeleton-loader>
+        <ngx-skeleton-loader animation="pulse" [theme]="{width:'150px', height: '10px'}"></ngx-skeleton-loader>
+        <ngx-skeleton-loader animation="pulse" [theme]="{width:'150px', height: '10px'}"></ngx-skeleton-loader>
+      </div>
+    </div>
+  </div>
+</div>
 
+<pagination-controls
+  (pageChange)="cp = $event"
+  class="pagination"
+  *ngIf="books.length > 9"
+></pagination-controls>
